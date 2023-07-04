@@ -1,28 +1,29 @@
 <template>
     <form @submit="onSubmit" class="add-form">
     <div class="form-control">
-      <label>Task</label>
-      <input v-model="text" type="text" name="text" placeholder="Add Task" />
+    <label>Task</label>
+    <input v-model="text" type="text" name="text" placeholder="Add Task" />
     </div>
     <div class="form-control">
-      <label>Day & Time</label>
-      <input
-        v-model="day"
-        type="text"        
-        name="day"
-        placeholder="Add Day & Time"
-      />
+    <label>Day & Time</label>
+    <VueDatePicker v-model="day" placeholder="Select Date & Time"/>
+
     </div>
     <div class="form-control form-control-check">
-      <label>Set Reminder</label>
-      <input v-model="reminder" type="checkbox"  name="reminder" />
+    <label>Set Reminder</label>
+    <input v-model="reminder" type="checkbox"  name="reminder" />
     </div>
 
     <input type="submit" value="Save Task" class="btn btn-block" />
-  </form>
+</form>
 </template>
 
+
+
 <script>
+    import VueDatePicker from '@vuepic/vue-datepicker';
+    import '@vuepic/vue-datepicker/dist/main.css';
+
     export default {
         name: 'AddTask',  
         data() {
@@ -31,6 +32,9 @@
                 day: '',
                 reminder: false
             }
+        },
+        components: {
+            VueDatePicker
         },
         methods: {
             onSubmit(e) {
@@ -54,7 +58,7 @@
                 this.day = ''
                 this.reminder = false                
             }
-        }
+        }, 
     }
 </script>
 
