@@ -1,21 +1,21 @@
 <template>
     <form @submit="onSubmit" class="add-form">
-    <div class="form-control">
-    <label>Task</label>
-    <input v-model="text" type="text" name="text" placeholder="Add Task" />
-    </div>
-    <div class="form-control">
-    <label>Day & Time</label>
-    <VueDatePicker v-model="day" placeholder="Select Date & Time"/>
+        <div class="form-control">
+            <label>Task</label>
+            <input v-model="text" type="text" name="text" placeholder="Add Task" />
+        </div>
+        <div class="form-control">
+            <label>Day & Time</label>
+            <VueDatePicker v-model="day" placeholder="Select Date & Time"/>
 
-    </div>
-    <div class="form-control form-control-check">
-    <label>Set Reminder</label>
-    <input v-model="reminder" type="checkbox"  name="reminder" />
-    </div>
+        </div>
+        <div class="form-control form-control-check">
+            <label>Set Reminder</label>
+            <input v-model="reminder" type="checkbox"  name="reminder" />
+        </div>
 
-    <input type="submit" value="Save Task" class="btn btn-block" />
-</form>
+        <input type="submit" value="Save Task" class="btn btn-block" />
+    </form>
 </template>
 
 
