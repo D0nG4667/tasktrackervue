@@ -52,7 +52,7 @@
                     reminder: this.reminder
                 }
 
-                console.log(newTask)
+                // console.log(newTask)
 
                 this.$emit("add-task", newTask)
 
