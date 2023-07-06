@@ -47,7 +47,7 @@ export default {
       this.tasks = [...this.tasks, data]
 
       } catch (error) {
-        console.log(error)        
+        console.error(error)        
       }      
     },
     async deleteTask(id) {      
@@ -63,14 +63,32 @@ export default {
             alert('Error deleting task')
         
         } catch (error) {
-        console.log(error)        
+        console.error(error)        
         }        
       }
     },
-    toggleReminder(id) {
-      this.tasks = this.tasks.map((task) => 
-        task.id === id ? {...task, reminder: !task.reminder} : task
+    async toggleReminder(id) {
+      try {
+        const taskToToggle = await this.fetchTask(id)
+        const updateTask = {...taskToToggle, reminder: !taskToToggle.reminder}
+        
+        const res = await fetch(`api/tasks/${id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-type': 'application/json'
+          },
+          body: JSON.stringify(updateTask), 
+        })
+
+        const data = await res.json()
+
+        this.tasks = this.tasks.map((task) => 
+        task.id === id ? {...task, reminder: data.reminder} : task
       )
+        
+      } catch (error) {
+        console.error(error);        
+      }
     },
     toggleAddTask() {
       this.showAddTask = !this.showAddTask
@@ -84,7 +102,7 @@ export default {
         return data
 
       } catch (error) {
-        console.log(error)
+        console.error(error)
       }
 
     },
@@ -95,7 +113,7 @@ export default {
         return data
 
       } catch (error) {
-        console.log(error)
+        console.error(error)
       }      
       
     },

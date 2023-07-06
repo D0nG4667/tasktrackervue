@@ -22,7 +22,7 @@
       "id": "4",
       "text": "Conference call with stakeholders",
       "day": "4th Of July 2023 10:00am",
-      "reminder": true
+      "reminder": false
     },
     {
       "id": "5",
@@ -41,6 +41,24 @@
       "text": "Training session",
       "day": "7th Of July 2023 11:00am",
       "reminder": false
+    },
+    {
+      "text": "DonGabby Vue",
+      "day": "2023-07-06T17:47:00.000Z",
+      "reminder": false,
+      "id": "u6IXdQS"
+    },
+    {
+      "text": "DonGabby Vue",
+      "day": "2023-07-05T17:48:00.000Z",
+      "reminder": false,
+      "id": "_w58CrX"
+    },
+    {
+      "text": "123456",
+      "day": "2023-07-07T17:48:00.000Z",
+      "reminder": false,
+      "id": "lamZy4l"
     }
   ]
 }
