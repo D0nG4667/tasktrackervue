@@ -32,9 +32,23 @@ export default {
     }
   },
   methods: {
-    addTask(task) {
-      task.id = this.tasks.slice(-1)[0].id + 1
-      this.tasks = [...this.tasks, task]
+    async addTask(task) {
+      try {
+        const res = await fetch('api/tasks', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',          
+        },
+        body: JSON.stringify(task),
+      })
+
+      const data = await res.json()
+      
+      this.tasks = [...this.tasks, data]
+
+      } catch (error) {
+        console.log(error)        
+      }      
     },
     deleteTask(id) {
       if (confirm('Are you sure?')) {
@@ -50,18 +64,28 @@ export default {
       this.showAddTask = !this.showAddTask
     },
     async fetchTasks() {
-      const res = await fetch('api/tasks')
+      try {
+        const res = await fetch('api/tasks/')
 
-      const data = await res.json()
+        const data = await res.json()
 
-      return data
+        return data
+
+      } catch (error) {
+        console.log(error)
+      }
+
     },
     async fetchTask(id) {
-      const res = await fetch(`api/tasks/${id}`)
+      try {
+        const res = await fetch(`api/tasks/${id}`)
+        const data = await res.json()
+        return data
 
-      const data = await res.json()
-
-      return data
+      } catch (error) {
+        console.log(error)
+      }      
+      
     },
   },
   async created() {
