@@ -32,7 +32,7 @@ export default {
     }
   },
   methods: {
-    async addTask(task) {
+    async addTask(task) {      
       try {
         const res = await fetch('api/tasks', {
         method: 'POST',

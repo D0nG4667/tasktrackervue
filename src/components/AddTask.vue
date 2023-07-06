@@ -6,7 +6,7 @@
         </div>
         <div class="form-control">
             <label>Day & Time</label>
-            <VueDatePicker v-model="day" placeholder="Select Date & Time"/>
+            <VueDatePicker v-model="day" utc time-picker-inline month-name-format="long" :is-24="false" placeholder="Select Date & Time"/>
 
         </div>
         <div class="form-control form-control-check">
@@ -22,7 +22,7 @@
 
 <script>
     import VueDatePicker from '@vuepic/vue-datepicker';
-    import '@vuepic/vue-datepicker/dist/main.css';
+    import '@vuepic/vue-datepicker/dist/main.css';    
 
     export default {
         name: 'AddTask',  
@@ -43,14 +43,16 @@
                 if(!this.text) {
                     alert('Please add a task')
                     return
-                }
-                
+                }                                           
+
                 const newTask = {
                     // id: '',
                     text: this.text,
                     day: this.day,
                     reminder: this.reminder
                 }
+
+                console.log(newTask)
 
                 this.$emit("add-task", newTask)
 
