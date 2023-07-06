@@ -4,7 +4,7 @@
         <Button 
             @btn-click="$emit('toggle-add-task')" 
             v-bind:text="showAddTask ? 'close' : 'Add Task'" 
-            v-bind:color="showAddTask ? 'red' : 'green'"
+            v-bind:color="showAddTask ? 'red' : 'blue'"
         />        
     </header>
 </template>

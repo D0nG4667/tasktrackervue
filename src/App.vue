@@ -48,55 +48,25 @@ export default {
     },
     toggleAddTask() {
       this.showAddTask = !this.showAddTask
-    }
-  },
-  created() {
-    this.tasks = [
-    {
-    id: 1,
-    text: 'Meeting with client',
-    day: '1st Of July 2023 9:30am',
-    reminder: true
     },
-    {
-    id: 2,
-    text: 'Lunch break',
-    day: '2nd Of July 2023 12:00pm',
-    reminder: false
-    },
-    {
-    id: 3,
-    text: 'Team brainstorming session',
-    day: '3rd Of July 2023 2:00pm',
-    reminder: true
-    },
-    {
-    id: 4,
-    text: 'Conference call with stakeholders',
-    day: '4th Of July 2023 10:00am',
-    reminder: true
-    },
-    {
-    id: 5,
-    text: 'Project presentation',
-    day: '5th Of July 2023 3:30pm',
-    reminder: false
-    },
-    {
-    id: 6,
-    text: 'Networking event',
-    day: '6th Of July 2023 6:00pm',
-    reminder: true
-    },
-    {
-    id: 7,
-    text: 'Training session',
-    day: '7th Of July 2023 11:00am',
-    reminder: false
-    }    
-    ]
+    async fetchTasks() {
+      const res = await fetch('api/tasks')
 
-  }
+      const data = await res.json()
+
+      return data
+    },
+    async fetchTask(id) {
+      const res = await fetch(`api/tasks/${id}`)
+
+      const data = await res.json()
+
+      return data
+    },
+  },
+  async created() {
+    this.tasks = await this.fetchTasks()
+  },
 }
 </script>
 
