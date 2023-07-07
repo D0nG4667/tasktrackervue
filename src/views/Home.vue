@@ -45,7 +45,7 @@ export default {
       this.tasks = [...this.tasks, data]
 
       } catch (error) {
-        console.log(error)        
+        // console.log(error)        
       }      
     },
     async deleteTask(id) {      
@@ -61,7 +61,7 @@ export default {
             alert('Error deleting task')
         
         } catch (error) {
-        console.log(error)        
+        // console.log(error)        
         }        
       }
     },
@@ -97,7 +97,7 @@ export default {
         return data
 
       } catch (error) {
-        console.log(error)
+        // console.log(error)
       }
 
     },
@@ -108,7 +108,7 @@ export default {
         return data
 
       } catch (error) {
-        console.log(error)
+        // console.log(error)
       }      
       
     },
