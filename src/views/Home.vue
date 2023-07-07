@@ -14,6 +14,7 @@
 import AddTask from '../components/AddTask.vue';
 import Tasks from '../components/Tasks.vue';
 
+
 export default {
     name: 'Home',
     props: {

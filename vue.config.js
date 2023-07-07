@@ -8,7 +8,7 @@ module.exports = {
     devServer: {
         proxy: {
             '^/api': {
-                target: 'http://localhost:7000',
+                target: 'https://json-server-render-2d8x.onrender.com',
                 changeOrigin: true,
                 logLevel: 'debug',
                 pathRewrite: { '^/api': '/' },
