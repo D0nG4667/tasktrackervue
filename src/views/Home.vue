@@ -14,6 +14,7 @@
 import AddTask from '../components/AddTask.vue';
 import Tasks from '../components/Tasks.vue';
 
+const apiJsonDb = 'https://json-server-render-2d8x.onrender.com/tasks'
 
 export default {
     name: 'Home',
@@ -33,7 +34,7 @@ export default {
     methods: {
     async addTask(task) {      
       try {
-        const res = await fetch('api/tasks', {
+        const res = await fetch(apiJsonDb, {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',          
@@ -52,7 +53,7 @@ export default {
     async deleteTask(id) {      
       if (confirm('Are you sure?')) {
         try {
-          const res = await fetch(`api/tasks/${id}`, {
+          const res = await fetch(`${apiJsonDb}/${id}`, {
             method: 'DELETE',            
           }) 
 
@@ -71,7 +72,7 @@ export default {
         const taskToToggle = await this.fetchTask(id)
         const updateTask = {...taskToToggle, reminder: !taskToToggle.reminder}
         
-        const res = await fetch(`api/tasks/${id}`, {
+        const res = await fetch(`${apiJsonDb}/${id}`, {
           method: 'PUT',
           headers: {
             'Content-type': 'application/json'
@@ -91,7 +92,7 @@ export default {
     },
     async fetchTasks() {
       try {
-        const res = await fetch('api/tasks/')
+        const res = await fetch(apiJsonDb)
 
         const data = await res.json()
 
@@ -104,7 +105,7 @@ export default {
     },
     async fetchTask(id) {
       try {
-        const res = await fetch(`api/tasks/${id}`)
+        const res = await fetch(`${apiJsonDb}/${id}`)
         const data = await res.json()
         return data
 
