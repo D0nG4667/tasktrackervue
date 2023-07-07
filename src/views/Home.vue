@@ -97,7 +97,7 @@ export default {
         return data
 
       } catch (error) {
-        console.error(error)
+        console.log(error)
       }
 
     },
